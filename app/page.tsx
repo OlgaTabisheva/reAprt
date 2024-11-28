@@ -1,30 +1,32 @@
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 import SearchForm from './components/SearchForm'
-import PropertyCategories from './components/PropertyCategories'
-import LatestAds from './components/LatestAds'
+import PopularCategories from './components/PopularCategories'
+import LatestListings from './components/LatestListings'
+import apr from './public/houses.jpeg'
 
 export default function Home() {
   return (
-    <div className="space-y-8">
-      <h1 className="text-4xl font-bold text-center text-blue-600">Find Your Dream Property with Apart</h1>
-      
-      <div className="relative">
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold mb-8 text-center">Find Your Dream Property</h1>
+      <SearchForm />
+
+      <div className="mb-6 relative bg-white shadow-2xl rounded-lg">
+
         <Image 
-          src="/placeholder.svg?height=400&width=800" 
+          src={apr}
           alt="Beautiful property" 
-          width={800} 
-          height={400} 
-          className="w-full rounded-lg shadow-lg"
+          width={500} 
+          height={700}
+          className="w-full rounded-lg  max-w-lg"
         />
-        <Link href="/properties" className="absolute bottom-4 right-4 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+        <Link href="/catalog" className="absolute bottom-4 right-4 bg-green-800 text-white px-6 py-2 rounded-full hover:bg-green-700 transition">
           View Catalog
         </Link>
       </div>
 
-      <SearchForm />
-      <PropertyCategories />
-      <LatestAds />
+      
+      <LatestListings />
     </div>
   )
 }

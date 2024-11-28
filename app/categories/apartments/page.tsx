@@ -1,7 +1,6 @@
 'use client'
-
 import { useState } from 'react'
-import PropertyList from '@/app/components/PropertyList'
+import PropertyList from './../../components/PropertyList'
 
 export default function ApartmentsPage() {
   const [filters, setFilters] = useState({
@@ -104,8 +103,8 @@ export default function ApartmentsPage() {
               <option value="rating">Sort by Rating</option>
             </select>
           </div>
-          <PropertyList category="apartments" filters={filters} sortBy={sortBy} />
-        </div>
+           <PropertyList /* category="apartments" filters={filters} sortBy={sortBy} */ />
+       </div>
       </div>
     </div>
   )

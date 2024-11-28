@@ -10,63 +10,48 @@ export default function SearchForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
+    // Handle search logic here
     console.log({ city, propertyType, price, rooms })
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <div className="mb-4">
-        <input 
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-          id="city" 
-          type="text" 
+    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <input
+          type="text"
           placeholder="City"
           value={city}
           onChange={(e) => setCity(e.target.value)}
+          className="border p-2 rounded"
         />
-      </div>
-      <div className="mb-4">
-        <select 
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="propertyType"
+        <select
           value={propertyType}
           onChange={(e) => setPropertyType(e.target.value)}
+          className="border p-2 rounded"
         >
           <option value="">Property Type</option>
           <option value="apartment">Apartment</option>
           <option value="house">House</option>
           <option value="commercial">Commercial</option>
         </select>
-      </div>
-      <div className="mb-4">
-        <input 
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-          id="price" 
-          type="text" 
+        <input
+          type="number"
           placeholder="Max Price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
+          className="border p-2 rounded"
         />
-      </div>
-      <div className="mb-4">
-        <input 
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-          id="rooms" 
-          type="number" 
+        <input
+          type="number"
           placeholder="Number of Rooms"
           value={rooms}
           onChange={(e) => setRooms(e.target.value)}
+          className="border p-2 rounded"
         />
       </div>
-      <div className="flex items-center justify-between">
-        <button 
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
-          type="submit"
-        >
-          Search
-        </button>
-      </div>
+      <button type="submit" className="mt-4 bg-green-800 text-white px-6 py-2 rounded hover:bg-green-700 transition">
+        Search
+      </button>
     </form>
   )
 }
