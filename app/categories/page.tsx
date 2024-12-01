@@ -4,8 +4,7 @@ import Link from 'next/link'
 import PopularCategories from './../components/PopularCategories'
 import LatestListings from './../components/LatestListings'
 import Footer from './../components/footer/Footer'
-import Header2 from './../components/Header2'
-import Footer2 from '../components/footer/Footer'
+
 import Header from './../components/header/Header'
 
 const categories = [
@@ -31,14 +30,11 @@ export default function Categories() {
           </Link>
         ))}
       </div>
-      <ContactForm/>
-      <SearchForm/>
-      <PopularCategories/>
+     
+      
+   
       <LatestListings/>
-      <Header/>
-      <Header2/>
-      <Footer/>
-      <Footer2/>
+   
 
 
     </div>

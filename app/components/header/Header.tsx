@@ -2,14 +2,14 @@ import Link from 'next/link'
 
 export default function Header() {
   return (
-    <header className="bg-white shadow-md">
+    <header className="shadow-md bg-primary-300">
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-blue-600">Apart</Link>
+        <Link href="/" className="text-2xl font-bold text-primary-50 no-underline">Smart Rent</Link>
         <div className="space-x-4">
-          <Link href="/categories" className="text-gray-600 hover:text-blue-600">Categories</Link>
-          <Link href="/properties" className="text-gray-600 hover:text-blue-600">Properties</Link>
-          <Link href="/register" className="text-gray-600 hover:text-blue-600">Register</Link>
-          <Link href="/login" className="text-gray-600 hover:text-blue-600">Login</Link>
+          <Link href="/categories" className="no-underline text-primary-50 hover:text-primary-100 no-underline">Categories</Link>
+          <Link href="/properties" className="no-underline text-primary-50 hover:text-primary-100 no-underline">Properties</Link>
+          <Link href="/register" className="no-underline text-primary-50 hover:text-primary-100 no-underline">Register</Link>
+          <Link href="/login" className="no-underline text-primary-50 hover:text-primary-100 no-underline">Login</Link>
         </div>
       </nav>
     </header>

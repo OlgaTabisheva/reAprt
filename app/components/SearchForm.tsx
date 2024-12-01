@@ -49,7 +49,7 @@ export default function SearchForm() {
           className="border p-2 rounded"
         />
       </div>
-      <button type="submit" className="mt-4 bg-green-800 text-white px-6 py-2 rounded hover:bg-green-700 transition">
+      <button type="submit" className="mt-4 bg-primary-300 text-white px-6 py-2 rounded hover:bg-primary-200 transition">
         Search
       </button>
     </form>

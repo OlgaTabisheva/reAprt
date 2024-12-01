@@ -55,7 +55,7 @@
 }
 
 .link.active {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {

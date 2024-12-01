@@ -63,12 +63,12 @@ export default function RegisterPage() {
             className="w-full border p-2 rounded"
           />
         </div>
-        <button type="submit" className="w-full bg-green-800 text-white px-6 py-2 rounded hover:bg-green-700 transition">
+        <button type="submit" className="w-full bg-primary-300 text-white px-6 py-2 rounded hover:bg-primary-500 transition">
           Register
         </button>
       </form>
       <p className="mt-4 text-center">
-        Already have an account? <Link href="/login" className="text-green-800 hover:underline">Login here</Link>
+        Already have an account? <Link href="/login" className="text-primary-500 hover:underline">Login here</Link>
       </p>
     </div>
   )

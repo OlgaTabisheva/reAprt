@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+
 // This is a mock function to simulate fetching property data
 async function getProperty(id: string) {
   // In a real application, you would fetch this data from an API or database
