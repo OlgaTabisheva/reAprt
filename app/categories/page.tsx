@@ -1,11 +1,6 @@
-import SearchForm from './../components/SearchForm'
-import ContactForm from './../components/ContactForm'
 import Link from 'next/link'
-import PopularCategories from './../components/PopularCategories'
 import LatestListings from './../components/LatestListings'
-import Footer from './../components/footer/Footer'
-
-import Header from './../components/header/Header'
+import CatalogBox from './../components/CatalogBox'
 
 const categories = [
   { name: 'Apartments', href: '/categories/apartments' },
@@ -26,16 +21,16 @@ export default function Categories() {
             href={category.href}
             className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition duration-300"
           >
-            <h2 className="text-xl font-semibold">{category.name}</h2>
+            <h2 className="text-primary-300 text-xl font-semibold">{category.name}</h2>
           </Link>
         ))}
+    
       </div>
      
       
    
-      <LatestListings/>
-   
-
+      <CatalogBox/>
+  
 
     </div>
   )

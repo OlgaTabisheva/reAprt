@@ -2,9 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const latestAds = [
-  { id: 1, title: 'Modern Apartment', price: '$250,000', image: '/placeholder.svg?height=200&width=300' },
-  { id: 2, title: 'Cozy House', price: '$350,000', image: '/placeholder.svg?height=200&width=300' },
-  { id: 3, title: 'Office Space', price: '$500,000', image: '/placeholder.svg?height=200&width=300' },
+  { id: 1, title: 'Modern Apartment', price: '$250,000', image: '/1.jpeg' },
+  { id: 2, title: 'Cozy House', price: '$350,000', image: '/1.jpeg' },
+  { id: 3, title: 'Office Space', price: '$500,000', image: '/1.jpeg' },
 ]
 
 export default function LatestAds() {
@@ -17,7 +17,7 @@ export default function LatestAds() {
             <Image src={ad.image} alt={ad.title} width={300} height={200} className="w-full" />
             <div className="p-4">
               <h3 className="text-lg font-semibold">{ad.title}</h3>
-              <p className="text-blue-600 font-bold">{ad.price}</p>
+              <p className="text-primary-300 font-bold">{ad.price}</p>
             </div>
           </Link>
         ))}

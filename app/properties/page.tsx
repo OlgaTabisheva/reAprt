@@ -14,7 +14,7 @@ async function getProperty(id: string) {
     area: 1200,
     description: 'A beautiful and spacious apartment in the heart of New York City.',
     amenities: ['Swimming Pool', 'Gym', 'Parking', 'Security'],
-    images: ['/placeholder.svg?height=400&width=600', '/placeholder.svg?height=400&width=600', '/placeholder.svg?height=400&width=600'],
+    images: ['/logo.svg', '/logo.svg', '/logo.svg'],
     owner: {
       name: 'John Doe',
       phone: '+1 234 567 8900',
@@ -35,7 +35,7 @@ export default async function PropertyPage({ params }: { params: { id: string } 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h2 className="text-2xl font-semibold mb-2">Details</h2>
-          <p className="text-blue-600 font-bold text-xl mb-2">{property.price}</p>
+          <p className="text-primary-300 font-bold text-xl mb-2">{property.price}</p>
           <p className="mb-2"><strong>Location:</strong> {property.location}</p>
           <p className="mb-2"><strong>Type:</strong> {property.type}</p>
           <p className="mb-2"><strong>Rooms:</strong> {property.rooms}</p>
@@ -54,7 +54,7 @@ export default async function PropertyPage({ params }: { params: { id: string } 
 Owner:</strong> {property.owner.name}</p>
           <p className="mb-2"><strong>Phone:</strong> {property.owner.phone}</p>
           <p className="mb-4"><strong>Email:</strong> {property.owner.email}</p>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+          <button className="bg-primary-300 text-white px-4 py-2 rounded-lg hover:bg-primary-200 transition duration-300">
             Contact Owner
           </button>
         </div>

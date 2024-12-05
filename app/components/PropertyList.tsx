@@ -2,9 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const properties = [
-  { id: 1, title: 'Modern Apartment', price: '$250,000', location: 'New York', type: 'Apartment', rooms: 2, image: '/placeholder.svg?height=200&width=300' },
-  { id: 2, title: 'Cozy House', price: '$350,000', location: 'Los Angeles', type: 'House', rooms: 3, image: '/placeholder.svg?height=200&width=300' },
-  { id: 3, title: 'Office Space', price: '$500,000', location: 'Chicago', type: 'Commercial', rooms: 5, image: '/placeholder.svg?height=200&width=300' },
+  { id: 1, title: 'Modern Apartment', price: '$250,000', location: 'New York', type: 'Apartment', rooms: 2, image: '/logo.svg' },
+  { id: 2, title: 'Cozy House', price: '$350,000', location: 'Los Angeles', type: 'House', rooms: 3, image: '/logo.svg' },
+  { id: 3, title: 'Office Space', price: '$500,000', location: 'Chicago', type: 'Commercial', rooms: 5, image: '/logo.svg' },
 ]
 
 export default function PropertyList() {
@@ -15,7 +15,7 @@ export default function PropertyList() {
           <Image src={property.image} alt={property.title} width={300} height={200} className="w-full" />
           <div className="p-4">
             <h3 className="text-lg font-semibold">{property.title}</h3>
-            <p className="text-blue-600 font-bold">{property.price}</p>
+            <p className="text-gray-600 font-bold">{property.price}</p>
             <p className="text-gray-600">{property.location}</p>
             <p className="text-gray-600">{property.type} • {property.rooms} rooms</p>
           </div>

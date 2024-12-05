@@ -1,9 +1,9 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import SearchForm from "./components/SearchForm";
 import PopularCategories from "./components/PopularCategories";
 import LatestListings from "./components/LatestListings";
-import apr from "./public/houses.jpeg";
 
 export default function Home() {
   return (
@@ -16,14 +16,14 @@ export default function Home() {
       <div className="mb-6 relative bg-white shadow-2xl rounded-lg">
       <div  className="flex flex-row items-center p-4" >
         <Image
-          src={apr}
+          src={"/houses.jpeg"}
           alt="Beautiful property"
           width={500}
           height={700}
           className="w-full rounded-lg  max-w-lg"
         />
         
-        <p>
+        <p className="text-lg">
           Мир жилья у ваших ног. Не ограничивайте себя рамками. С помощью нашего
           сервиса вы можете выбрать жилье, которое идеально соответствует вашим
           потребностям и стилю жизни. Будь то уютная квартира в центре города
