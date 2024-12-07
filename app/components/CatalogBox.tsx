@@ -1,5 +1,13 @@
+'use client'
+import { collection, getDocs } from 'firebase/firestore'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import db from '../../lib/firebase/firebase'
+
+
+
+
 
 const catalog = [
   { id: 1, title: 'Modern Apartment', price: '$250,000', image: '/1.jpeg' },
@@ -15,8 +23,13 @@ const catalog = [
   { id: 11, title: 'Cozy House', price: '$350,000', image: '/1.jpeg' },
   { id: 12, title: 'Downtown Office', price: '$500,000', image: '/1.jpeg' },
 ]
-
 export default function CatalogBox() {
+  
+
+
+
+
+
   return (
     <section>
       <h2 className="text-2xl font-bold mb-4">Catalog</h2>

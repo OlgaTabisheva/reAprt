@@ -1,9 +1,10 @@
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import SearchForm from "./components/SearchForm";
-import PopularCategories from "./components/PopularCategories";
 import LatestListings from "./components/LatestListings";
+
 
 export default function Home() {
   return (
@@ -12,24 +13,23 @@ export default function Home() {
         Find Your Dream Property
       </h1>
       <SearchForm />
-
       <div className="mb-6 relative bg-white shadow-2xl rounded-lg">
-      <div  className="flex flex-row items-center p-4" >
-        <Image
-          src={"/houses.jpeg"}
-          alt="Beautiful property"
-          width={500}
-          height={700}
-          className="w-full rounded-lg  max-w-lg"
-        />
-        
-        <p className="text-lg">
-          Мир жилья у ваших ног. Не ограничивайте себя рамками. С помощью нашего
-          сервиса вы можете выбрать жилье, которое идеально соответствует вашим
-          потребностям и стилю жизни. Будь то уютная квартира в центре города
-          или просторный дом за городом, у нас есть все, чтобы удовлетворить
-          ваши запросы.
-        </p>
+        <div className="flex flex-col pb-24 items-center px-4 pt-4 lg:flex-row p-4">
+          <Image
+            src={"/houses.jpeg"}
+            alt="Beautiful property"
+            width={500}
+            height={700}
+            className="w-full rounded-lg  max-w-lg"
+          />
+
+          <p className="text-lg">
+            Мир жилья у ваших ног. Не ограничивайте себя рамками. С помощью
+            нашего сервиса вы можете выбрать жилье, которое идеально
+            соответствует вашим потребностям и стилю жизни. Будь то уютная
+            квартира в центре города или просторный дом за городом, у нас есть
+            все, чтобы удовлетворить ваши запросы.
+          </p>
         </div>
         <Link
           href="/catalog"
@@ -37,7 +37,6 @@ export default function Home() {
         >
           View Catalog
         </Link>
-  
       </div>
 
       <LatestListings />

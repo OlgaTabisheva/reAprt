@@ -14,7 +14,7 @@ export default function LatestAds() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {latestAds.map((ad) => (
           <Link key={ad.id} href={`/properties/${ad.id}`} className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
-            <Image src={ad.image} alt={ad.title} width={300} height={200} className="w-full" />
+            <Image src={ad.image} alt={ad.title} width={200} height={200} className="w-full" />
             <div className="p-4">
               <h3 className="text-lg font-semibold">{ad.title}</h3>
               <p className="text-primary-300 font-bold">{ad.price}</p>

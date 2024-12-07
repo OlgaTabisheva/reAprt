@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
+
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -46,6 +47,7 @@ export default function LoginPage() {
       <p className="mt-4 text-center">
         Don't have an account? <Link href="/register" className="text-primary-500 hover:underline">Register here</Link>
       </p>
+ 
     </div>
   )
 }

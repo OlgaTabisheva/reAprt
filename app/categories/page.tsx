@@ -1,6 +1,8 @@
+'use client'
 import Link from 'next/link'
 import LatestListings from './../components/LatestListings'
 import CatalogBox from './../components/CatalogBox'
+import PropertyCategories from './../components/PropertyCategories'
 
 const categories = [
   { name: 'Apartments', href: '/categories/apartments' },
@@ -13,7 +15,7 @@ const categories = [
 export default function Categories() {
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">Property Categories</h1>
+{/*       <h1 className="text-3xl font-bold mb-6">Property Categories</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {categories.map((category) => (
           <Link 
@@ -26,8 +28,8 @@ export default function Categories() {
         ))}
     
       </div>
-     
-      
+      */}
+      <PropertyCategories/>
    
       <CatalogBox/>
   
