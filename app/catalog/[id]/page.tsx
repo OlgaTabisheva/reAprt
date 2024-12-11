@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import ContactForm from '@/app/components/ContactForm'
+import ContactForm from './../../components/ContactForm'
 
 // This is mock data. In a real application, you would fetch this data from an API based on the property ID.
 const property = {
@@ -29,6 +29,11 @@ const property = {
 }
 
 export default function PropertyPage({ params }: { params: { id: string } }) {
+
+  const router = useRouter()
+  const { id } = router.query
+
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-4">{property.title}</h1>

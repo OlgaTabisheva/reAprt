@@ -31,7 +31,6 @@ export default function Categories() {
       */}
       <PropertyCategories/>
    
-      <CatalogBox/>
   
 
     </div>
