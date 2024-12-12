@@ -3,6 +3,7 @@ import Link from 'next/link'
 import LatestListings from './../components/LatestListings'
 import CatalogBox from './../components/CatalogBox'
 import PropertyCategories from './../components/PropertyCategories'
+import { useRouter } from 'next/router'
 
 const categories = [
   { name: 'Apartments', href: '/categories/apartments' },
@@ -13,6 +14,9 @@ const categories = [
 ]
 
 export default function Categories() {
+
+
+  
   return (
     <div>
 {/*       <h1 className="text-3xl font-bold mb-6">Property Categories</h1>

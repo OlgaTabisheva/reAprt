@@ -23,37 +23,15 @@ const catalog = [
   { id: 11, title: 'Cozy House', price: '$350,000', image: '/1.jpeg' },
   { id: 12, title: 'Downtown Office', price: '$500,000', image: '/1.jpeg' },
 ]
-export default function CatalogBox({setUseItem}) {
+export default function CatalogBox({}) {
   
 
-  const [itemseEstate, setItemsEstate] = useState([]);
-
-  useEffect(() => {
-    const fetchItems = async () => {
-      const querySnapshot = await getDocs(collection(db, "smart_estate"));
-      setItemsEstate(
-        querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-      );
-    };
-    fetchItems();
-  }, []);
 
 
 
   return (
     <section>
-      <h2 className="text-2xl font-bold mb-4">Catalog</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {itemseEstate.map((listing:{id:string, name:string,price:string,amenities:string}) => (
-          <Link key={listing.id} href={`/catalog/${listing.id}`} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-            <Image src={listing?.photos?.image1} alt={listing?.name} width={300} height={200} className="w-full" />
-          <div className="p-4">
-              <h3 className="text-l font-semibold truncate ... pb-4">{listing?.name}</h3>
-              <p className="text-primary-300 text-lg font-bold">{listing?.price}</p>
-            </div>
-          </Link>
-        ))}
-      </div>
+  
     </section>
   )
 }
