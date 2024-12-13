@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import imgEmpty from './../../../public/logo.svg'
+import imgEmpty from "./../../../public/logo.svg";
 import ContactForm from "./../../components/ContactForm";
 import {
   useParams,
@@ -11,6 +11,7 @@ import {
 import { use, useEffect, useState } from "react";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import db from "../../../lib/firebase/firebase";
+import MapBox from "./../../components/MapBox";
 //import { useRouter } from 'next/router'
 
 // This is mock data. In a real application, you would fetch this data from an API based on the property ID.
@@ -53,22 +54,25 @@ interface rentItemInterface {
   name: string;
   id: string;
   price: number;
-  mainImage:string;
-  images:string[];
-  location:string;
-  contacts: {owner:string,email:string,phone:string};
-  description:string;
-  details:{
-    bedrooms:number,
-    bathrooms:number,
-    area:number,
-    floor:number,
-    parking:boolean,
-    furnished:boolean
-  }
-
-
-
+  mainImage: string;
+  images: string[];
+  contacts: { owner: string; email: string; phone: string };
+  description: string;
+  details: {
+    bedrooms: number;
+    bathrooms: number;
+    area: number;
+    floor: number;
+    parking: boolean;
+    furnished: boolean;
+  };
+  location: {
+    address: string;
+    coordinates: {
+      lat: number;
+      lng: number;
+    };
+  };
 }
 
 export default function PropertyPage({ params }: { params: { id: string } }) {
@@ -76,22 +80,20 @@ export default function PropertyPage({ params }: { params: { id: string } }) {
 
   const [rentItem, setRentItem] = useState<rentItemInterface>();
 
-
- async function getDocById(){
-    const docRef = doc(db, "smart_estate",  `${id}`);
-    const docSnap:any = await getDoc(docRef);
+  async function getDocById() {
+    const docRef = doc(db, "smart_estate", `${id}`);
+    const docSnap: any = await getDoc(docRef);
     if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data(), "id", docSnap.id,);
-      setRentItem({...docSnap.data(), id: docSnap.id} )
+      console.log("Document data:", docSnap.data(), "id", docSnap.id);
+      setRentItem({ ...docSnap.data(), id: docSnap.id });
     } else {
       // docSnap.data() will be undefined in this case
       console.log("No such document!");
     }
-
- }
- useEffect(() => {
-  getDocById()
-}, []);
+  }
+  useEffect(() => {
+    getDocById();
+  }, []);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -100,39 +102,50 @@ export default function PropertyPage({ params }: { params: { id: string } }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <div className="mb-6">
-          <Image src={rentItem?.mainImage ? rentItem?.mainImage : imgEmpty} alt={'image'} width={600} height={400} className="rounded-lg" />
-           </div>
-       <div className="grid grid-cols-3 gap-4">
+            <Image
+              src={rentItem?.mainImage ? rentItem?.mainImage : imgEmpty}
+              alt={"image"}
+              width={600}
+              height={400}
+              className="rounded-lg"
+            />
+          </div>
+          <div className="grid grid-cols-3 gap-4">
             {rentItem?.images?.map((image, index) => (
-             <Image key={index} src={image ? image : imgEmpty} alt={'`${rentItem?.name} ${index + 2}`'} width={200} height={150} className="rounded-lg" />
-
+              <Image
+                key={index}
+                src={image ? image : imgEmpty}
+                alt={"`${rentItem?.name} ${index + 2}`"}
+                width={200}
+                height={150}
+                className="rounded-lg"
+              />
             ))}
-          </div>  
+          </div>
         </div>
 
         <div>
           <h2 className="text-2xl font-semibold mb-4">Property Details</h2>
           <ul className="mb-6">
-       <li>Bedrooms: {rentItem?.details?.bedrooms}</li>
+            <li>Bedrooms: {rentItem?.details?.bedrooms}</li>
             <li>Bathrooms: {rentItem?.details?.bathrooms}</li>
             <li>Area: {rentItem?.details?.area} sqm</li>
             <li>Floor: {rentItem?.details?.floor}</li>
-            <li>Parking: {rentItem?.details?.parking ? 'Yes' : 'No'}</li>
-            <li>Furnished: {rentItem?.details?.furnished ? 'Yes' : 'No'}</li> 
+            <li>Parking: {rentItem?.details?.parking ? "Yes" : "No"}</li>
+            <li>Furnished: {rentItem?.details?.furnished ? "Yes" : "No"}</li>
           </ul>
 
           <h2 className="text-2xl font-semibold mb-4">Amenities</h2>
-       {/*    <ul className="mb-6">
-            {property.amenities.map((amenity, index) => (
+          <ul className="mb-6">
+            {rentItem?.amenities?.map((amenity, index) => (
               <li key={index}>{amenity}</li>
             ))}
-          </ul> */}
+          </ul>
 
           <h2 className="text-2xl font-semibold mb-4">Location</h2>
-          <p className="mb-2">{rentItem?.location}</p>
-          <div className="bg-gray-200 h-64 rounded-lg mb-6">
-            {/* Add a map component here */}
-            <p className="p-4">Map placeholder</p>
+          <p className="mb-2">{rentItem?.location?.address}</p>
+          <div className=" h-64 rounded-lg mb-6">
+            <MapBox lat={rentItem?.location?.coordinates?.lat} lng={rentItem?.location?.coordinates?.lat}/>
           </div>
 
           <h2 className="text-2xl font-semibold mb-4">Contact Agent</h2>
@@ -140,13 +153,13 @@ export default function PropertyPage({ params }: { params: { id: string } }) {
           <p className="mb-2">{rentItem?.contacts?.phone}</p>
           <p className="mb-4">{rentItem?.contacts?.email}</p>
 
-     {/*      <ContactForm /> */}
+          {/*      <ContactForm /> */}
         </div>
       </div>
 
       <div className="mt-8">
         <h2 className="text-2xl font-semibold mb-4">Description</h2>
-        <p>{rentItem?.description}</p> 
+        <p>{rentItem?.description}</p>
       </div>
     </div>
   );

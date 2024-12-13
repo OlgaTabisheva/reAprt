@@ -2,6 +2,7 @@ import "./global.css";
 import { Inter } from "next/font/google";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import Image from "next/image";
 
 
 
@@ -16,6 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+  
       <body className={inter.className}>
           <Header />
           <main className="container mx-auto px-4 py-8">{children}</main>

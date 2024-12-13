@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import LatestListings from './../components/LatestListings'
-import CatalogBox from './../components/CatalogBox'
+import CatalogBox from '../profile/page'
 import PropertyCategories from './../components/PropertyCategories'
 import { useRouter } from 'next/router'
 
