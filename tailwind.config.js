@@ -5,8 +5,13 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+
   theme: {
     extend: {
+      backgroundImage: {
+        "hero-image": "url('/3.jpeg')",
+        "background": "url('/5.jpeg')",
+      },
       colors: {
         "green-light": "#e6ffe6",
         "green-dark": "#006400",
@@ -15,10 +20,8 @@ module.exports = {
           100: "#ddeedf",
           200: "#b6cdbd",
           300: "#5c715e",
-          400: '#dde0ab',
-          500: '#678a74',
-      
-  
+          400: "#dde0ab",
+          500: "#678a74",
         },
       },
     },

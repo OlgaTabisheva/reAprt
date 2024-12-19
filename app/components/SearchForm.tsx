@@ -15,7 +15,7 @@ export default function SearchForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md mb-8">
+    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md mb-8 bg-background h-auto bg-cover  bg-no-repeat bg-center bg-opacity-40">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <input
           type="text"

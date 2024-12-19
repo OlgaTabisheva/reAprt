@@ -7,7 +7,7 @@ export default function Header() {
         <Link href="/" className="text-2xl font-bold text-primary-50 no-underline">Smart Rent</Link>
         <div className="space-x-4">
           <Link href="/categories" className="no-underline text-primary-50 hover:text-primary-100 no-underline">Categories</Link>
-          <Link href="/properties" className="no-underline text-primary-50 hover:text-primary-100 no-underline">Properties</Link>
+          <Link href="/createRealEstate" className="no-underline text-primary-50 hover:text-primary-100 no-underline">Create</Link>
           <Link href="/register" className="no-underline text-primary-50 hover:text-primary-100 no-underline">Register</Link>
           <Link href="/login" className="no-underline text-primary-50 hover:text-primary-100 no-underline">Login</Link>
         </div>

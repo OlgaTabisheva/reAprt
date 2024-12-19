@@ -1,24 +1,38 @@
 'use client'
 
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 import Link from 'next/link'
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { useRouter } from 'next/navigation';
+import firebase from '../../lib/firebase/firebase';
+import { auth } from "../../lib/firebase/firebaseConfig"
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  const [confirmPassword, setConfirmPassword] = useState<string>('')
+  const [error, setError] = useState<string | null>(null);
+  const[ newUser, setNewUser] = useState()
+  const [signUpError, setSignUpError] = useState(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSignUp = async (e) => {
     e.preventDefault()
-    // Handle registration logic here
-    console.log({ name, email, password, confirmPassword })
+    try {
+      await createUserWithEmailAndPassword(auth, email, password)
+      router.push("/") // Navigate to the home page
+    } catch (error) {
+      console.error("Error signing up:", error)
+      setSignUpError(error.message)
+    }
   }
+  
 
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8 text-center">Register</h1>
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+      <form onSubmit={handleSignUp} className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
         <div className="mb-4">
           <label htmlFor="name" className="block mb-2">Name</label>
           <input

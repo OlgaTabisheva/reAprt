@@ -1,5 +1,7 @@
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
-const firebaseConfig = {
+ const firebaseConfig = {
     apiKey: "AIzaSyDrXrfejKBW2t1V_WO18S7H0TV9DXb6jQg",
     authDomain: "knot-store.firebaseapp.com",
     projectId: "knot-store",
@@ -9,4 +11,5 @@ const firebaseConfig = {
     measurementId: "G-H826L431WY"
   };
 
-  export default firebaseConfig;
+  const app = initializeApp(firebaseConfig);
+  export const auth = getAuth(app);
